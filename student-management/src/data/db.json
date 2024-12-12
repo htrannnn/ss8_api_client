@@ -1,0 +1,39 @@
+{
+	"information": [
+		{
+			"stt": 1,
+			"id": 1,
+			"phone": "0123456789",
+			"email": "nguyenthia@gmail.com"
+		},
+		{
+			"stt": 2,
+			"id": 2,
+			"phone": "0987654321",
+			"email": "tranvanb@gmail.com"
+		},
+		{
+			"stt": 3,
+			"id": 3,
+			"phone": "0192837465",
+			"email": "nguyenvanc@gmail.com"
+		}
+	],
+	"student": [
+		{
+			"stt": 1,
+			"id": 1,
+			"name": "Nguyễn Thị A"
+		},
+		{
+			"stt": 2,
+			"id": 2,
+			"name": "Trần Văn B"
+		},
+		{
+			"stt": 3,
+			"id": 3,
+			"name": "Nguyễn Văn C"
+		}
+	]
+}
