@@ -8,16 +8,17 @@ function StudentItem(props) {
 	return (
 		<tr>
 			<td>{+props.i + 1}</td>
-
 			<td>{id}</td>
 			<td>{name}</td>
+			<td>{gender}</td>
 			<td>{phone}</td>
+			<td>{address}</td>
 			<td>{email}</td>
 			<td className="text-center">
 				<Link type="button" className="btn btn-secondary rounded-0 me-2">
 					Detail
 				</Link>
-				<button type="button" className="btn btn-secondary rounded-0">
+				<button type="button" className="btn btn-secondary rounded-0" onClick={() => props.handleShowModal(props.student)}>
 					Delete
 				</button>
 			</td>
