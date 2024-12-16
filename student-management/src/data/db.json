@@ -23,17 +23,6 @@
       "gender": "Male",
       "phone": "0192837465",
       "email": "nguyenvanc@gmail.com"
-    },
-    {
-      "id": "4",
-      "name": "Huyen Tran",
-      "gender": "female",
-      "phone": "0977659041",
-      "email": "tran.htran6123@gmail.com",
-      "address": {
-        "id": 1,
-        "name": "Ha Noi"
-      }
     }
   ],
   "address": [
