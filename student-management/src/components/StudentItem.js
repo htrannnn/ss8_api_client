@@ -3,17 +3,17 @@ import { Link } from "react-router-dom";
 
 function StudentItem(props) {
 	console.log(props.student);
-	const { id, name, phone, email } = props.student;
+	const { id, name, phone, email, gender, address } = props.student;
 
 	return (
 		<tr>
-			<td>{+props.i + 1}</td>
-			<td>{id}</td>
-			<td>{name}</td>
-			<td>{gender}</td>
-			<td>{phone}</td>
-			<td>{address}</td>
-			<td>{email}</td>
+			<td className="text-center">{+props.i + 1}</td>
+			<td className="text-center">{id}</td>
+			<td className="text-center">{name}</td>
+			<td className="text-center">{gender}</td>
+			<td className="text-center">{phone}</td>
+			<td className="text-center">{address}</td>
+			<td className="text-center">{email}</td>
 			<td className="text-center">
 				<Link type="button" className="btn btn-secondary rounded-0 me-2">
 					Detail

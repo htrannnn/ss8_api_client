@@ -10,7 +10,7 @@ export async function getAllStudentInformation() {
 
 export async function addNewStudent(student) {
 	try {
-		const response = await axios.post(`${BASE_URL}/information${student}`);
+		const response = await axios.post(`${BASE_URL}/information`, student);
 		return response.data;
 	} catch (error) {}
 }
