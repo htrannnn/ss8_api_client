@@ -6,6 +6,7 @@
       "name": "Nguyễn Thị A",
       "gender": "Female",
       "phone": "0123456789",
+      "addressId": 3,
       "email": "nguyenthia@gmail.com"
     },
     {
@@ -14,6 +15,7 @@
       "name": "Trần Văn B",
       "gender": "Male",
       "phone": "0987654321",
+      "addressId": 2,
       "email": "tranvanb@gmail.com"
     },
     {
@@ -22,10 +24,20 @@
       "name": "Nguyễn Văn C",
       "gender": "Male",
       "phone": "0192837465",
+      "addressId": 1,
       "email": "nguyenvanc@gmail.com"
+    },
+    {
+      "id": "4",
+      "name": "Huyen Tran",
+      "gender": "Female",
+      "phone": "0977659041",
+      "email": "tran.htran6123@gmail.com",
+      "addressId": 1,
+      "address": "1"
     }
   ],
-  "address": [
+  "addresses": [
     {
       "id": 1,
       "name": "Ha Noi"

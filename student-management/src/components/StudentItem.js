@@ -12,7 +12,7 @@ function StudentItem(props) {
 			<td className="text-center">{name}</td>
 			<td className="text-center">{gender}</td>
 			<td className="text-center">{phone}</td>
-			<td className="text-center">{address}</td>
+			<td className="text-center">{address ? address.name : "Khong co dia chi"}</td>
 			<td className="text-center">{email}</td>
 			<td className="text-center">
 				<Link type="button" className="btn btn-secondary rounded-0 me-2">

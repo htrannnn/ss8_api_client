@@ -3,26 +3,17 @@ import { Link } from "react-router-dom";
 import { deleteById, getAllStudentInformation } from "../services/informationServices";
 import StudentItem from "./StudentItem";
 import DeleteComponent from "./DeleteComponent";
-import { getAllAddress } from "../services/addressService";
 
 function StudentList() {
-	const [studentList, setStudentList] = useState([]);
+	const [students, setStudents] = useState([]);
 	const [show, setShow] = useState(false);
 	const [selectedStudent, setSelectedStudent] = useState();
 
 	useEffect(() => {
 		const fetchData = async () => {
-			const informationList = await getAllStudentInformation();
-			const addressList = await getAllAddress();
-
-			const studentInfoAddress = informationList.map((student) => {
-				const address = addressList.find((a) => a.id === student.id);
-				return {
-					...student,
-					address: address ? address.name : "Khong co dia chi",
-				};
-			});
-			setStudentList(studentInfoAddress);
+			const data = await getAllStudentInformation();
+			console.log(data);
+			setStudents(await getAllStudentInformation());
 		};
 		fetchData();
 	}, [show]);
@@ -73,7 +64,7 @@ function StudentList() {
 					</tr>
 				</thead>
 				<tbody>
-					{studentList.map((student, i) => (
+					{students.map((student, i) => (
 						<StudentItem key={student.id} i={i} student={student} handleShowModal={handleShowModal} />
 					))}
 				</tbody>

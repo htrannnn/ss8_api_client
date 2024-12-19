@@ -3,7 +3,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
 import { addNewStudent } from "../services/informationServices";
-import { getAllAddress } from "../services/addressService";
+import { getAllAddress } from "../services/addressesService";
 
 function AddComponent() {
 	const [student, setStudent] = useState({
@@ -12,10 +12,11 @@ function AddComponent() {
 		gender: "",
 		phone: "",
 		email: "",
-		address: "",
+		addressId: "",
 	});
 
 	const [address, setAddress] = useState([]);
+
 	useEffect(() => {
 		const fetchData = async () => {
 			setAddress(await getAllAddress());
@@ -28,7 +29,7 @@ function AddComponent() {
 	const handleSubmit = async (value) => {
 		const student = {
 			...value,
-			address: JSON.parse(value.address),
+			addressId: JSON.parse(value.address),
 			//JSON.parse: chuyển từ chuỗi sang đối tượng
 		};
 
@@ -81,13 +82,13 @@ function AddComponent() {
 						<div className="col-sm-4">
 							<div>
 								<div className="form-check form-check-inline">
-									<Field className="form-check-input" type="radio" name="gender" id="inlineRadio1" value="female" />
+									<Field className="form-check-input" type="radio" name="gender" id="inlineRadio1" value="Female" />
 									<label className="form-check-label" htmlFor="inlineRadio1">
 										Female
 									</label>
 								</div>
 								<div className="form-check form-check-inline">
-									<Field className="form-check-input" type="radio" name="gender" id="inlineRadio2" value="male" />
+									<Field className="form-check-input" type="radio" name="gender" id="inlineRadio2" value="Male" />
 									<label className="form-check-label" htmlFor="inlineRadio2">
 										Male
 									</label>
@@ -110,7 +111,7 @@ function AddComponent() {
 							<Field as="select" name="address" className="form-select">
 								<option value="">City</option>
 								{address.map((a) => (
-									<option value={JSON.stringify(a)}>{a.name}</option>
+									<option value={JSON.stringify(a.id)}>{a.name}</option>
 								))}
 							</Field>
 						</div>

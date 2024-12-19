@@ -3,7 +3,7 @@ import { BASE_URL } from "./api";
 
 export async function getAllStudentInformation() {
 	try {
-		const response = await axios.get(`${BASE_URL}/information`);
+		const response = await axios.get(`http://localhost:0612/information?_expand=address`);
 		return response.data;
 	} catch (error) {}
 }
