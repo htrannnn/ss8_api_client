@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { deleteById, getAllStudentInformation } from "../services/informationServices";
+import { deleteById, getAllStudentInformation, searchByName } from "../services/informationServices";
 import StudentItem from "./StudentItem";
 import DeleteComponent from "./DeleteComponent";
 
@@ -12,12 +12,18 @@ function StudentList() {
 	useEffect(() => {
 		const fetchData = async () => {
 			const data = await getAllStudentInformation();
-			console.log(data);
 			setStudents(await getAllStudentInformation());
 		};
 		fetchData();
 	}, [show]);
 	//show: tránh reload mỗi lần delete
+
+	const searchRef = useRef();
+
+	const handleSearch = async () => {
+		const studentList = await searchByName(searchRef.current.value);
+		setStudents(studentList);
+	};
 
 	const handleShowModal = (student) => {
 		setShow(true);
@@ -44,8 +50,8 @@ function StudentList() {
 				</Link>
 
 				<div className="input-group ms-5 w-25" id="search">
-					<input type="text" className="form-control rounded-0" placeholder="Search students" />
-					<button className="btn btn-outline-secondary rounded-0" type="button" id="button-addon2">
+					<input type="search" className="form-control rounded-0" placeholder="Search students" ref={searchRef} />
+					<button className="btn btn-outline-secondary rounded-0" type="button" id="button-addon2" onClick={handleSearch}>
 						Search
 					</button>
 				</div>

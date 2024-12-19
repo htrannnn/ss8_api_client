@@ -4,6 +4,7 @@ import FooterComponent from "./components/FooterComponent";
 import HeaderComponent from "./components/HeaderComponent";
 import StudentList from "./components/StudentList";
 import AddComponent from "./components/AddComponent";
+import { ToastContainer } from "react-toastify";
 
 function App() {
 	return (
@@ -14,6 +15,7 @@ function App() {
 				<Route path={"/students/add_students"} element={<AddComponent />}></Route>
 			</Routes>
 			<FooterComponent />
+			<ToastContainer />
 		</>
 	);
 }

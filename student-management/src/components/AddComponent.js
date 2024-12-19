@@ -4,22 +4,23 @@ import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
 import { addNewStudent } from "../services/informationServices";
 import { getAllAddress } from "../services/addressesService";
+import { toast } from "react-toastify";
 
 function AddComponent() {
 	const [student, setStudent] = useState({
 		id: "",
 		name: "",
-		gender: "",
+		gender: "Female",
 		phone: "",
 		email: "",
 		addressId: "",
 	});
 
-	const [address, setAddress] = useState([]);
+	const [addresses, setAddresses] = useState([]);
 
 	useEffect(() => {
 		const fetchData = async () => {
-			setAddress(await getAllAddress());
+			setAddresses(await getAllAddress());
 		};
 		fetchData();
 	}, []);
@@ -27,13 +28,8 @@ function AddComponent() {
 	const navigate = useNavigate();
 
 	const handleSubmit = async (value) => {
-		const student = {
-			...value,
-			addressId: JSON.parse(value.address),
-			//JSON.parse: chuyển từ chuỗi sang đối tượng
-		};
-
-		await addNewStudent(student);
+		await addNewStudent(value);
+		toast.success("Thêm mới thành công");
 		navigate("/students");
 	};
 
@@ -108,10 +104,12 @@ function AddComponent() {
 					<div className="row mb-3 ms-1 align-items-center">
 						<label className="col-sm-1">Address:</label>
 						<div className="col-sm-4">
-							<Field as="select" name="address" className="form-select">
-								<option value="">City</option>
-								{address.map((a) => (
-									<option value={JSON.stringify(a.id)}>{a.name}</option>
+							<Field as="select" name="addressId" className="form-select">
+								<option value="">-- Select city --</option>
+								{addresses.map((a) => (
+									<option key={a.id} value={a.id}>
+										{a.name}
+									</option>
 								))}
 							</Field>
 						</div>

@@ -21,3 +21,11 @@ export async function deleteById(id) {
 		return response.data;
 	} catch (error) {}
 }
+
+export async function searchByName(name) {
+	try {
+		const response = await axios.get(`${BASE_URL}/information?name_like=${name}&_expand=address`);
+		console.log("search by name", response.data);
+		return response.data;
+	} catch (error) {}
+}
