@@ -29,3 +29,10 @@ export async function searchByName(name) {
 		return response.data;
 	} catch (error) {}
 }
+
+export async function getStudentById(id) {
+	try {
+		const response = await axios.get(`${BASE_URL}/information/${id}`);
+		return response.data;
+	} catch (error) {}
+}

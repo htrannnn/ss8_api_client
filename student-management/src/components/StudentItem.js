@@ -19,7 +19,7 @@ function StudentItem(props) {
 			<td className="text-center">{email}</td>
 			<td className="text-center">
 				<OverlayTrigger overlay={<Tooltip id={id}>Detail</Tooltip>}>
-					<Link type="button" className="btn btn-secondary rounded-0 me-2">
+					<Link type="button" className="btn btn-secondary rounded-0 me-2" to={"/students/detail_student/" + id}>
 						<FaInfo />
 					</Link>
 				</OverlayTrigger>

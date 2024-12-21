@@ -11,7 +11,6 @@ function StudentList() {
 
 	useEffect(() => {
 		const fetchData = async () => {
-			const data = await getAllStudentInformation();
 			setStudents(await getAllStudentInformation());
 		};
 		fetchData();
